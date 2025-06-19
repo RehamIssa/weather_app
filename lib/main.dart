@@ -3,9 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_current_weather_cubit/get_weather_cubit.dart';
 import 'package:weather_app/cubits/get_current_weather_cubit/get_weather_state.dart';
 import 'package:weather_app/views/home_view.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
   runApp(const WeatherApp());
+  //loading the .env once when the app started
+  await dotenv.load(fileName: ".env"); 
+
 }
 
 class WeatherApp extends StatelessWidget {
