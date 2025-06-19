@@ -1,4 +1,3 @@
-
 class WeatherState {}
 
 //The default state before requesting any data

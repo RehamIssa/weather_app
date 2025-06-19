@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 class Error extends StatelessWidget {
   const Error({super.key});
-
+ 
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -38,9 +38,7 @@ class Error extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            height: 12,
-          ),
+          
         ],
       ),
     );

@@ -27,7 +27,6 @@ class NoWeatherBody extends StatelessWidget {
             style: TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 47, 46, 46),
             ),
           ),
           SizedBox(
@@ -38,7 +37,6 @@ class NoWeatherBody extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
-                color: Color(0xff919191),
               ),
             ),
           ),
@@ -52,10 +50,7 @@ class NoWeatherBody extends StatelessWidget {
                 return SearchView();
               }));
             },
-            style: ButtonStyle(
-              foregroundColor: WidgetStatePropertyAll(Colors.white),
-              backgroundColor: WidgetStatePropertyAll(Colors.blue),
-            ),
+            style: ButtonStyle(),
             child: Text(
               'Search Weather',
               style: TextStyle(fontSize: 16),

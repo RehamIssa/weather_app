@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_current_weather_cubit/get_weather_cubit.dart';
+import 'package:weather_app/main.dart';
 
 class WeatherInfoBody extends StatelessWidget {
   const WeatherInfoBody({
@@ -9,7 +10,7 @@ class WeatherInfoBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
+    var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel!;
 
     return Container(
       padding: EdgeInsets.all(16),
@@ -18,10 +19,10 @@ class WeatherInfoBody extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Colors.blue,
-            Colors.lightBlue,
-            Colors.lightBlueAccent,
-            Colors.white,
+            getThemeColor(weatherModel.weatherCondition),
+            //Since it returns a material color, then it has shades and we can use any shade we want
+            getThemeColor(weatherModel.weatherCondition)[300]!,
+            getThemeColor(weatherModel.weatherCondition)[50]!,
           ],
         ),
       ),
@@ -34,15 +35,13 @@ class WeatherInfoBody extends StatelessWidget {
               style: TextStyle(
                 fontSize: 34,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 47, 46, 46),
               ),
             ),
             Text(
-              'Updated at 5:57 AM',
+              'Updated at ${weatherModel.date.hour}:${weatherModel.date.minute}',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
-                color: Color.fromARGB(255, 47, 46, 46),
               ),
             ),
             SizedBox(
@@ -51,19 +50,18 @@ class WeatherInfoBody extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset('assets/images/weather_states/rainy.png'),
+                Image.network('https:${weatherModel.image!}'),
                 Text(
-                  '24',
+                  '${weatherModel.temp}°',
                   style: TextStyle(
                     fontSize: 34,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 47, 46, 46),
                   ),
                 ),
                 Column(
                   children: [
-                    Text('maxTemp: 26'),
-                    Text('minTemp: 16'),
+                    Text('maxTemp: ${weatherModel.maxTemp.round()}°'),
+                    Text('minTemp: ${weatherModel.minTemp.round()}°'),
                   ],
                 )
               ],
@@ -72,11 +70,10 @@ class WeatherInfoBody extends StatelessWidget {
               height: 28,
             ),
             Text(
-              'Light Rain',
+              weatherModel.weatherCondition,
               style: TextStyle(
                 fontSize: 34,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 47, 46, 46),
               ),
             ),
           ],

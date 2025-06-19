@@ -7,11 +7,11 @@ import 'package:weather_app/services/weather_service.dart';
 class GetWeatherCubit extends Cubit<WeatherState> {
   //The initial state is the no weather state (default state)
   GetWeatherCubit() : super(InitialState());
-  late WeatherModel weatherModel;
-  getWeather({required String value}) async {
+  WeatherModel? weatherModel;
+  getWeather({required String cityName}) async {
     try {
       weatherModel =
-          await WeatherService(Dio()).getCurrentWeather(cityName: value);
+          await WeatherService(Dio()).getCurrentWeather(cityName: cityName);
       //emit method used to send the state to the UI
       emit(
         WeatherLoadedState(),

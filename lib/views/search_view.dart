@@ -8,11 +8,8 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Search a City'),
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.blue,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -21,7 +18,7 @@ class SearchView extends StatelessWidget {
           onSubmitted: (value) async {
             //the way to call and use an object from the cubit
             var getWeatherCubit = BlocProvider.of<GetWeatherCubit>(context);
-            getWeatherCubit.getWeather(value: value);
+            getWeatherCubit.getWeather(cityName: value);
             Navigator.pop(context);
           },
           decoration: InputDecoration(
@@ -30,11 +27,8 @@ class SearchView extends StatelessWidget {
             contentPadding: EdgeInsets.symmetric(horizontal: 24, vertical: 32),
             suffixIcon: Icon(Icons.search),
             border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
-                ) //the color of the border
-                ),
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
         )),
       ),
