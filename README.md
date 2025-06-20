@@ -9,5 +9,6 @@ A Flutter project that is built to search for the current weather in different c
 - How to make the App theme a dynamic theme.
 
 ## key self-development area
-- Learning how to secure the API key when uploading the project to GitHub, which by the use of dotenv package. 
+- Learning how to secure the API key when uploading the project to GitHub, which by the use of dotenv package.
+- Learning how to use SVG pictures in a Flutter project, by the use of flutter_svg package.
 
