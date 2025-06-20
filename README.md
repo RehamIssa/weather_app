@@ -1,16 +1,13 @@
 # weather_app
 
-A new Flutter project.
+A Flutter project that is built to search for the current weather in different cities and countries. This project is part of the online course I'm taking on Udemy, which focuses on Flutter development.  
 
-## Getting Started
+## Key points I learned
+- What is the best structure of a Flutter project where the files should be under different folders based on their content such as, views for the widgets that represnets screens, models for the classes that used to create objects for the displayed data, services for the classes that will be used for the request from the APIs etc.
+- How to use the API to get data. This project [Weather API] (used https://www.weatherapi.com/).
+- What is state management, and how to use it. In this project, bloc is used for state management. 
+- How to make the App theme a dynamic theme.
 
-This project is a starting point for a Flutter application.
+## key self-development area
+- Learning how to secure the API key when uploading the project to GitHub, which by the use of dotenv package. 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
